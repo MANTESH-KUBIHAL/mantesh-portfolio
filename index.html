@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Mantesh Kubihal</title>
+
+  <script>
+    window.addEventListener("load", () => {
+      const img = new Image();
+      img.src = "/logoooo.jpg";
+
+      img.onload = () => {
+        const size = 256;
+        const canvas = document.createElement("canvas");
+
+        canvas.width = size;
+        canvas.height = size;
+
+        const ctx = canvas.getContext("2d");
+
+        // Make the favicon circular
+        ctx.beginPath();
+        ctx.arc(size / 2, size / 2, size / 2, 0, Math.PI * 2);
+        ctx.closePath();
+        ctx.clip();
+
+        // Make the logo fill the favicon
+        ctx.drawImage(img, -40, -40, size + 80, size + 80);
+
+        // Create favicon
+        const favicon = document.createElement("link");
+        favicon.rel = "icon";
+        favicon.type = "image/png";
+        favicon.href = canvas.toDataURL("image/png");
+
+        document.head.appendChild(favicon);
+      };
+    });
+  </script>
+</head>
+
+<body>
+  <div id="root"></div>
+
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+
+</html>
