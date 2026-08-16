@@ -19,31 +19,33 @@ function App() {
 
     if (isSending) return;
 
-    const publicKey = "qAY2OqQOmikzQ62Dr";
+    // ================= EMAILJS CONFIG =================
 
-    if (!publicKey) {
+    const serviceID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+    // Check if EmailJS environment variables are configured
+    if (!serviceID || !templateID || !publicKey) {
       setEmailStatus({
         type: "error",
         message: "Email service is not configured yet.",
       });
+
       return;
     }
 
     setIsSending(true);
+
     setEmailStatus({
       type: "",
       message: "",
     });
 
     emailjs
-      .sendForm(
-        "service_eqtcn77",
-        "template_ln9llin",
-        contactForm.current,
-        {
-          publicKey,
-        }
-      )
+      .sendForm(serviceID, templateID, contactForm.current, {
+        publicKey: publicKey,
+      })
       .then(() => {
         setEmailStatus({
           type: "success",
@@ -57,7 +59,8 @@ function App() {
 
         setEmailStatus({
           type: "error",
-          message: "Sorry, your message could not be sent. Please try again.",
+          message:
+            "Sorry, your message could not be sent. Please try again.",
         });
       })
       .finally(() => {
@@ -127,10 +130,7 @@ function App() {
     return () => {
       observer.disconnect();
 
-      window.removeEventListener(
-        "scroll",
-        handleScroll
-      );
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
@@ -201,6 +201,7 @@ function App() {
         <div className="hero-overlay"></div>
 
         <div className="particles">
+          <span></span>
           <span></span>
           <span></span>
           <span></span>
@@ -736,6 +737,7 @@ function App() {
 
             <div className="contact-field">
               <label htmlFor="contact-name">Name</label>
+
               <input
                 id="contact-name"
                 type="text"
@@ -747,7 +749,10 @@ function App() {
             </div>
 
             <div className="contact-field">
-              <label htmlFor="contact-phone">Phone Number</label>
+              <label htmlFor="contact-phone">
+                Phone Number
+              </label>
+
               <input
                 id="contact-phone"
                 type="tel"
@@ -760,7 +765,10 @@ function App() {
             </div>
 
             <div className="contact-field contact-field-full">
-              <label htmlFor="contact-reason">Reason for Contact</label>
+              <label htmlFor="contact-reason">
+                Reason for Contact
+              </label>
+
               <textarea
                 id="contact-reason"
                 name="reason"
