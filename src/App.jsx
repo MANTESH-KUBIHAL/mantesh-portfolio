@@ -19,7 +19,7 @@ function App() {
 
     if (isSending) return;
 
-    // ================= EMAILJS CONFIG =================
+    // EMAILJS CONFIG
 
     const serviceID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
     const templateID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
@@ -69,7 +69,7 @@ function App() {
   };
 
   useEffect(() => {
-    // ================= SCROLL REVEAL =================
+    //  SCROLL REVEAL 
 
     const elements = document.querySelectorAll(".reveal");
 
@@ -89,7 +89,7 @@ function App() {
 
     elements.forEach((element) => observer.observe(element));
 
-    // ================= ABOUT PARALLAX =================
+    //  ABOUT PARALLAX 
 
     const aboutSection = document.querySelector(".about-image");
     const aboutBg = document.querySelector(".about-bg");
@@ -134,7 +134,7 @@ function App() {
     };
   }, []);
 
-  // ================= CSS DEMOS =================
+  //  CSS DEMOS 
 
   const demos = {
     hover: {
@@ -191,7 +191,7 @@ function App() {
   return (
     <main>
 
-      {/* ================= HERO ================= */}
+      {/*  HERO  */}
 
       <section
         className="hero"
@@ -292,7 +292,7 @@ function App() {
       </section>
 
 
-      {/* ================= ABOUT ================= */}
+      {/*  ABOUT  */}
 
       <section
         className="section about about-image"
@@ -407,7 +407,7 @@ function App() {
       </section>
 
 
-      {/* ================= SKILLS ================= */}
+      {/*  SKILLS  */}
 
       <section
         className="section skills-section"
@@ -483,7 +483,7 @@ function App() {
       </section>
 
 
-      {/* ================= MARQUEE ================= */}
+      {/*  MARQUEE  */}
 
       <div className="marquee">
 
@@ -507,7 +507,7 @@ function App() {
       </div>
 
 
-      {/* ================= PROJECTS ================= */}
+      {/*  PROJECTS  */}
 
       <section
         className="section projects-section"
@@ -627,7 +627,7 @@ function App() {
       </section>
 
 
-      {/* ================= JOURNEY ================= */}
+      {/*  JOURNEY  */}
 
       <section
         className="section journey"
@@ -704,7 +704,7 @@ function App() {
       </section>
 
 
-      {/* ================= CONTACT ================= */}
+      {/*  CONTACT  */}
 
       <section
         className="contact-section"
@@ -803,9 +803,7 @@ function App() {
       </section>
 
 
-      {/* =====================================================
-          CSS THINGS FUN
-      ===================================================== */}
+      {/* CSS THINGS FUN */}
 
       <section
         className="css-things-section"
@@ -995,7 +993,7 @@ function App() {
       </section>
 
 
-      {/* ================= FOOTER ================= */}
+      {/*  FOOTER  */}
 
       <footer>
 
